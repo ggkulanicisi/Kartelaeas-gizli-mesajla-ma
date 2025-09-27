@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Şifreli Mesaj Gönderici / Çözücü</title>
+  <link rel="stylesheet" href="style.css"> </head>
+<body>
+  <div class="card">
+    <h1>Şifreli Mesaj Gönderici / Çözücü</h1>
+    <p class="muted">Güvenli mesajlaşma için **parolanın alıcıya güvenli bir yolla ulaştırılması** şarttır.</p>
+    
+    <label for="plaintext">1) Gönderen — Mesaj (buraya yaz)</label>
+    <textarea id="plaintext" placeholder="Düz metin mesajınızı buraya yazın..."></textarea>
+
+    <div class="row">
+      <div>
+        <label for="password">2) Parola (şifre) — Hem şifreleme hem çözme için aynı parola</label>
+        <input id="password" type="password" placeholder="Güçlü bir parola girin (en az 8 karakter)" />
+        <div class="buttons">
+          <button id="encryptBtn">🔒 Şifrele</button>
+          <button id="copyEncrypted" class="copy-btn">Kopyala</button>
+        </div>
+        <p class="muted small">Şifreleme **AES-256 GCM** + **PBKDF2** (150k iterasyon) kullanır.</p>
+      </div>
+
+      <div>
+        <label for="encrypted">3) Şifreli Mesaj (kopyala/yapıştır alanı)</label>
+        <textarea id="encrypted" placeholder="Şifrelenmiş metin burada görünecek veya buraya yapıştırıp çözeceksiniz"></textarea>
+        <div class="buttons">
+          <button id="decryptBtn">🔓 Çöz</button>
+          <button id="pasteEncrypted" class="copy-btn">Buraya Yapıştır</button>
+        </div>
+      </div>
+    </div>
+
+    <label for="decrypted">4) Çözülen Mesaj</label>
+    <textarea id="decrypted" readonly placeholder="Çözülmüş metin burada gözükecek"></textarea>
+
+    <p id="messageArea" class="muted small" style="margin-top: 15px;"></p>
+
+    <p class="muted small">Not: Bu araç öğrenme amaçlıdır; kritik gizlilik gereksinimleri için profesyonel çözümler tercih edin.</p>
+  </div>
+  
+  <script src="script.js"></script> </body>
+</html>
