@@ -1,106 +1,186 @@
+/* Genel Stil Ayarları */
 body {
-  font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
-  margin: 24px;
-  background: #0f172a;
-  color: #e6eef8;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0; /* Sayfanın kenarlarındaki varsayılan boşluğu kaldırırız */
+  padding: 24px; /* İçerik için genel dolgu */
+  background: #0f172a; /* Koyu lacivert arkaplan */
+  color: #e6eef8; /* Açık gri yazı rengi */
+  line-height: 1.6; /* Metinlerin daha okunaklı olması için satır yüksekliği */
+  display: flex; /* İçeriği ortalamak için flexbox kullanırız */
+  justify-content: center; /* Yatayda ortala */
+  align-items: center; /* Dikeyde ortala (sayfa yüksekliği uygunsa) */
+  min-height: 100vh; /* Minimum tam ekran yüksekliği */
+  box-sizing: border-box; /* Padding ve border'ın genişliğe dahil olmasını sağlar */
 }
 
+/* Kart (Ana Konteyner) Stili */
 .card {
-  background: linear-gradient(180deg, #0b1220, #0b1530);
-  padding: 18px;
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(2, 6, 23, 0.6);
+  background: linear-gradient(180deg, #0b1220 0%, #0b1530 100%); /* Hafif gradientli koyu arkaplan */
+  padding: 24px; /* Kart içi dolgu */
+  border-radius: 16px; /* Daha yuvarlak köşeler */
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.7); /* Daha belirgin gölge */
   max-width: 900px;
-  margin: 12px auto;
+  width: 100%; /* Mobil uyumluluk için genişliği ayarlarız */
+  margin: auto; /* Ortalamak için margin */
+  border: 1px solid rgba(32, 48, 64, 0.4); /* Hafif bir kenarlık ekleriz */
+  transition: transform 0.3s ease; /* Fare üzerine gelince küçük animasyon */
+}
+
+.card:hover {
+    transform: translateY(-3px); /* Hafif yukarı kalkma efekti */
 }
 
 h1 {
-  font-size: 20px;
-  margin: 0 0 10px;
+  font-size: 22px; /* Başlık boyutu */
+  margin: 0 0 15px; /* Alt boşluk artırıldı */
+  color: #a7d9e8; /* Başlık için hafif mavimsi ton */
+  text-align: center; /* Başlığı ortala */
 }
 
+/* Label Stili */
 label {
   display: block;
-  margin: 10px 0 6px;
+  margin: 15px 0 8px; /* Üst boşluk artırıldı */
   font-weight: 600;
+  color: #cbd5e1; /* Label için daha açık bir gri */
+  font-size: 15px;
 }
 
+/* Metin Alanları ve Input Stili */
 textarea,
 input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #203040;
-  background: #020617;
+  width: calc(100% - 22px); /* Padding'i hesaba katarak tam genişlik */
+  padding: 11px;
+  border-radius: 9px; /* Daha yuvarlak */
+  border: 1px solid #2d3f57; /* Daha belirgin ve koyu kenarlık */
+  background: #060d1b; /* Daha koyu input arkaplanı */
   color: #e6eef8;
   font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Odaklanma animasyonu */
+}
+
+textarea:focus,
+input:focus {
+  outline: none; /* Varsayılan odaklama kenarlığını kaldır */
+  border-color: #0ea5e9; /* Odaklanınca mavi kenarlık */
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3); /* Mavi parlayan gölge */
 }
 
 textarea {
-  min-height: 90px;
+  min-height: 100px; /* Minimum yükseklik artırıldı */
   resize: vertical;
 }
 
+/* Satır Düzeni */
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 20px; /* Boşluk artırıldı */
+  margin-top: 20px;
 }
 
+/* Buton Grupları */
 .buttons {
   display: flex;
-  gap: 8px;
-  margin-top: 8px;
+  gap: 10px; /* Butonlar arası boşluk */
+  margin-top: 12px;
 }
 
+/* Buton Stili */
 button {
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 0;
-  background: #0ea5a5;
-  color: #04202a;
+  padding: 10px 18px; /* İç dolgu artırıldı */
+  border-radius: 9px;
+  border: none; /* Kenarlık kaldırıldı */
   cursor: pointer;
-  transition: background 0.2s;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.1s ease; /* Animasyon geçişleri */
+  flex-grow: 1; /* Butonların boşluğu doldurmasını sağlar */
 }
 
-button:hover:not(:disabled) {
-  background: #109393;
+/* Birincil Buton (Şifrele/Çöz) */
+button:not(.copy-btn) {
+  background: #0ea5e9; /* Mavi ton */
+  color: #0d1a2f; /* Koyu metin */
 }
 
-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
+button:not(.copy-btn):hover:not(:disabled) {
+  background: #0284c7; /* Daha koyu mavi */
+  transform: translateY(-1px); /* Hafif yukarı kalkma */
 }
 
-.muted {
-  font-size: 13px;
-  color: #9fb4c8;
-}
-
-.small {
-  font-size: 13px;
-}
-
+/* Kopyala/Yapıştır Butonları */
 .copy-btn {
-  background: #334155;
+  background: #475569; /* Koyu gri ton */
   color: #e6eef8;
 }
 
 .copy-btn:hover:not(:disabled) {
-  background: #475569;
+  background: #64748b; /* Daha açık gri */
+  transform: translateY(-1px);
+}
+
+/* Devre Dışı Bırakılmış Butonlar */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none; /* Animasyonu iptal et */
+}
+
+/* Yardımcı Metinler */
+.muted {
+  font-size: 13px;
+  color: #94a3b8; /* Daha koyu bir gri tonu */
+  margin-top: 5px; /* Üst boşluk */
+}
+
+.small {
+  font-size: 12px; /* Daha küçük font boyutu */
+  color: #a0aec0; /* Bir tık daha açık gri */
+}
+
+/* Mesaj Alanı Stili */
+#messageArea {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent;
 }
 
 #messageArea.error {
     color: #f87171; /* Kırmızı hata mesajları */
-    font-weight: bold;
+    background-color: rgba(239, 68, 68, 0.1); /* Çok hafif kırmızı arkaplan */
+    border-color: #ef4444;
 }
 
 #messageArea.success {
     color: #4ade80; /* Yeşil başarı mesajları */
+    background-color: rgba(34, 197, 94, 0.1); /* Çok hafif yeşil arkaplan */
+    border-color: #22c55e;
 }
 
-@media(max-width: 720px) {
+#messageArea.info {
+    color: #a7d9e8; /* Mavi bilgi mesajları */
+    background-color: rgba(100, 180, 255, 0.1); /* Çok hafif mavi arkaplan */
+    border-color: #38bdf8;
+}
+
+/* Medya Sorguları (Responsive Tasarım) */
+@media(max-width: 768px) { /* Mobil cihazlar için daha küçük max-width */
   .row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Tek sütuna düşür */
+    gap: 15px; /* Mobil boşluk */
+  }
+  .card {
+    padding: 18px; /* Mobil için kart içi dolguyu azalt */
+    margin: 10px; /* Mobil için kenar boşluğunu azalt */
+  }
+  h1 {
+      font-size: 20px;
+  }
+  body {
+      padding: 15px; /* Genel sayfa dolgusunu azalt */
   }
 }
