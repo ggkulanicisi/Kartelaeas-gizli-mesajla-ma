@@ -1,0 +1,106 @@
+body {
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+  margin: 24px;
+  background: #0f172a;
+  color: #e6eef8;
+}
+
+.card {
+  background: linear-gradient(180deg, #0b1220, #0b1530);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(2, 6, 23, 0.6);
+  max-width: 900px;
+  margin: 12px auto;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 6px;
+  font-weight: 600;
+}
+
+textarea,
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #203040;
+  background: #020617;
+  color: #e6eef8;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 0;
+  background: #0ea5a5;
+  color: #04202a;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background: #109393;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.muted {
+  font-size: 13px;
+  color: #9fb4c8;
+}
+
+.small {
+  font-size: 13px;
+}
+
+.copy-btn {
+  background: #334155;
+  color: #e6eef8;
+}
+
+.copy-btn:hover:not(:disabled) {
+  background: #475569;
+}
+
+#messageArea.error {
+    color: #f87171; /* Kırmızı hata mesajları */
+    font-weight: bold;
+}
+
+#messageArea.success {
+    color: #4ade80; /* Yeşil başarı mesajları */
+}
+
+@media(max-width: 720px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
